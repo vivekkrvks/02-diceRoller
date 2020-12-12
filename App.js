@@ -21,11 +21,20 @@ import DiceSix from './assets/dice6.png'
 const App = () => {
   const [uri, setUri] = useState(DiceOne)
 
+  const chagePic = () => {
+    let num = Math.floor(Math.random() * 6) 
+    let pics = [DiceOne,DiceTwo,DiceThree,DiceFour,DiceFive,DiceSix]
+    let pic = pics[num]
+
+    setUri(pic)
+
+  }
+
   return(
     <>
     <View style = {styles.container}>
       <Image style = {styles.image} source={uri}></Image>
-      <TouchableOpacity>
+      <TouchableOpacity onPress = {chagePic}>
     <Text style = {styles.pButton}>Play Game</Text></TouchableOpacity>
     </View>
     </>
